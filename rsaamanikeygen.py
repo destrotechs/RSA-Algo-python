@@ -4,6 +4,9 @@ class RSA:
 
     def __init__(self, numberOfBits):
         self.numberOfBits = numberOfBits
+        self.calculateN()
+        self.calculateE()
+        self.calculatePrivateKey()
 
     def getPrimeNumber(self):
         prime_number = rabin1.returnPrimeNumber(self.numberOfBits)
@@ -36,22 +39,8 @@ class RSA:
 
     def getValueOfE(self, n):
         new_limit_e =len('{:b}'.format(n))-1
-        print("(p-1)(q-1) number of bits : ",len('{:b}'.format(n)))
-        new_limit_e =len('{:b}'.format(n))-1
-        print("(p-1)(q-1) number of bits less 1 : ",new_limit_e)
-
         self.numberOfBits=new_limit_e
         prime_number = self.getPrimeNumber()
 
         print("New Prime number, value e: ",prime_number)
         return prime_number
-
-
-    
-        
-    
-rsa  = RSA(4)
-rsa.calculateN()
-rsa.calculateE()
-rsa.calculatePrivateKey()
-
