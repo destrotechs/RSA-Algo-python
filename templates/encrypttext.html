@@ -1,0 +1,16 @@
+{%extends 'base.html'%}
+{%block content%}
+<h4>Encrypt Text</h4>
+<div class="card">
+    <div class="card-body">
+        <form method="post" action="{{url_for('upload_file')}}" enctype="multipart/form-data">
+            <label>Upload Recipient's Public Key</label>
+            <input type="file" name="public" class="form-control">
+            <label>Text To Encrypt</label>
+            <textarea class="form-control" rows="5" name="plaintext"></textarea>
+            <br>
+            <button type="submit" class="btn btn-success">Submit</button>
+        </form>
+    </div>
+</div>
+{%endblock content%}

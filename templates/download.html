@@ -1,0 +1,15 @@
+{%extends 'base.html'%}
+{%block content%}
+
+<h4>Downloads your keys</h4>
+<div class="alert alert-warning">
+    Please store your keys at a secure location
+</div>
+<div class="card">
+    <div class="card-body">
+        <a href="/return-file/private" class="btn btn-primary" download>Download Private Key</a>
+        <a href="/return-file/public" class="btn btn-primary" download>Download Public Key</a>
+    </div>
+</div>
+
+{%endblock content%}
