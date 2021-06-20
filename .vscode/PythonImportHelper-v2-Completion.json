@@ -1,0 +1,623 @@
+[
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "importPath": "Crypto.PublicKey",
+        "description": "Crypto.PublicKey",
+        "isExtraImport": true,
+        "detail": "Crypto.PublicKey",
+        "documentation": {}
+    },
+    {
+        "label": "get_random_bytes",
+        "importPath": "Crypto.Random",
+        "description": "Crypto.Random",
+        "isExtraImport": true,
+        "detail": "Crypto.Random",
+        "documentation": {}
+    },
+    {
+        "label": "AES",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "PKCS1_OAEP",
+        "importPath": "Crypto.Cipher",
+        "description": "Crypto.Cipher",
+        "isExtraImport": true,
+        "detail": "Crypto.Cipher",
+        "documentation": {}
+    },
+    {
+        "label": "random",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "random",
+        "description": "random",
+        "detail": "random",
+        "documentation": {}
+    },
+    {
+        "label": "Decimal",
+        "importPath": "decimal",
+        "description": "decimal",
+        "isExtraImport": true,
+        "detail": "decimal",
+        "documentation": {}
+    },
+    {
+        "label": "rabin1",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "binascii",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "binascii",
+        "description": "binascii",
+        "detail": "binascii",
+        "documentation": {}
+    },
+    {
+        "label": "os",
+        "kind": 6,
+        "isExtraImport": true,
+        "importPath": "os",
+        "description": "os",
+        "detail": "os",
+        "documentation": {}
+    },
+    {
+        "label": "Flask",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "request",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "url_for",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "redirect",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "render_template",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "flash",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "send_file",
+        "importPath": "flask",
+        "description": "flask",
+        "isExtraImport": true,
+        "detail": "flask",
+        "documentation": {}
+    },
+    {
+        "label": "Keys",
+        "importPath": "rsaamanilibenc",
+        "description": "rsaamanilibenc",
+        "isExtraImport": true,
+        "detail": "rsaamanilibenc",
+        "documentation": {}
+    },
+    {
+        "label": "secure_filename",
+        "importPath": "werkzeug.utils",
+        "description": "werkzeug.utils",
+        "isExtraImport": true,
+        "detail": "werkzeug.utils",
+        "documentation": {}
+    },
+    {
+        "label": "Enc",
+        "kind": 6,
+        "importPath": "enc",
+        "description": "enc",
+        "peekOfCode": "class Enc:\n    def encrypt(self):        \n        data = \"I met aliens in UFO. Here is the map.\".encode(\"utf-8\")\n        file_out = open(\"encrypted_data.bin\", \"wb\")\n        recipient_key = RSA.import_key(open(\"receiver.pem\").read())\n        session_key = get_random_bytes(16)\n        # Encrypt the session key with the public RSA key\n        cipher_rsa = PKCS1_OAEP.new(recipient_key)\n        enc_session_key = cipher_rsa.encrypt(session_key)\n        # Encrypt the data with the AES session key",
+        "detail": "enc",
+        "documentation": {}
+    },
+    {
+        "label": "enc",
+        "kind": 5,
+        "importPath": "enc",
+        "description": "enc",
+        "peekOfCode": "enc = Enc()\nenc.encrypt()",
+        "detail": "enc",
+        "documentation": {}
+    },
+    {
+        "label": "nBitRandom",
+        "kind": 2,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "def nBitRandom(n):\n   return random.randrange(2**(n-1)+1, 2**n - 1)\ndef getLowLevelPrime(n):\n\t'''Generate a prime candidate divisible\n\tby first primes'''\n\twhile True:\n\t\t# Obtain a random number\n\t\tpc = nBitRandom(n)\n\t\t# Test divisibility by pre-generated\n\t\t# primes",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "getLowLevelPrime",
+        "kind": 2,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "def getLowLevelPrime(n):\n\t'''Generate a prime candidate divisible\n\tby first primes'''\n\twhile True:\n\t\t# Obtain a random number\n\t\tpc = nBitRandom(n)\n\t\t# Test divisibility by pre-generated\n\t\t# primes\n\t\tfor divisor in first_primes_list:\n\t\t\tif pc % divisor == 0 and divisor**2 <= pc:",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "isMillerRabinPassed",
+        "kind": 2,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "def isMillerRabinPassed(mrc):\n\t'''Run 20 iterations of Rabin Miller Primality test'''\n\tmaxDivisionsByTwo = 0\n\tec = mrc-1\n\twhile ec % 2 == 0:\n\t\tec >>= 1\n\t\tmaxDivisionsByTwo += 1\n\tassert(2**maxDivisionsByTwo * ec == mrc-1)\n\tdef trialComposite(round_tester):\n\t\tif pow(round_tester, ec, mrc) == 1:",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "returnPrimeNumber",
+        "kind": 2,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "def returnPrimeNumber(n):\n\twhile True:\n\t\t#n = 1024\n\t\tglobal prime_candidate\n\t\tprime_candidate = getLowLevelPrime(n)\n\t\tif not isMillerRabinPassed(prime_candidate):\n\t\t\tcontinue\n\t\telse:\n\t\t\treturn prime_candidate",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "first_primes_list",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "first_primes_list = [2, 3, 5, 7, 11, 13, 17, 19, 23, 29,\n\t\t\t\t\t31, 37, 41, 43, 47, 53, 59, 61, 67,\n\t\t\t\t\t71, 73, 79, 83, 89, 97, 101, 103,\n\t\t\t\t\t107, 109, 113, 127, 131, 137, 139,\n\t\t\t\t\t149, 151, 157, 163, 167, 173, 179,\n\t\t\t\t\t181, 191, 193, 197, 199, 211, 223,\n\t\t\t\t\t227, 229, 233, 239, 241, 251, 257,\n\t\t\t\t\t263, 269, 271, 277, 281, 283, 293,\n\t\t\t\t\t307, 311, 313, 317, 331, 337, 347, 349]\ndef nBitRandom(n):",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tpc",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\t\tpc = nBitRandom(n)\n\t\t# Test divisibility by pre-generated\n\t\t# primes\n\t\tfor divisor in first_primes_list:\n\t\t\tif pc % divisor == 0 and divisor**2 <= pc:\n\t\t\t\tbreak\n\t\telse: return pc \ndef isMillerRabinPassed(mrc):\n\t'''Run 20 iterations of Rabin Miller Primality test'''\n\tmaxDivisionsByTwo = 0",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\tmaxDivisionsByTwo",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\tmaxDivisionsByTwo = 0\n\tec = mrc-1\n\twhile ec % 2 == 0:\n\t\tec >>= 1\n\t\tmaxDivisionsByTwo += 1\n\tassert(2**maxDivisionsByTwo * ec == mrc-1)\n\tdef trialComposite(round_tester):\n\t\tif pow(round_tester, ec, mrc) == 1:\n\t\t\treturn False\n\t\tfor i in range(maxDivisionsByTwo):",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\tec",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\tec = mrc-1\n\twhile ec % 2 == 0:\n\t\tec >>= 1\n\t\tmaxDivisionsByTwo += 1\n\tassert(2**maxDivisionsByTwo * ec == mrc-1)\n\tdef trialComposite(round_tester):\n\t\tif pow(round_tester, ec, mrc) == 1:\n\t\t\treturn False\n\t\tfor i in range(maxDivisionsByTwo):\n\t\t\tif pow(round_tester, 2**i * ec, mrc) == mrc-1:",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\tnumberOfRabinTrials",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\tnumberOfRabinTrials = 20\n\tfor i in range(numberOfRabinTrials):\n\t\tround_tester = random.randrange(2, mrc)\n\t\tif trialComposite(round_tester):\n\t\t\treturn False\n\treturn True\ndef returnPrimeNumber(n):\n\twhile True:\n\t\t#n = 1024\n\t\tglobal prime_candidate",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tround_tester",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\t\tround_tester = random.randrange(2, mrc)\n\t\tif trialComposite(round_tester):\n\t\t\treturn False\n\treturn True\ndef returnPrimeNumber(n):\n\twhile True:\n\t\t#n = 1024\n\t\tglobal prime_candidate\n\t\tprime_candidate = getLowLevelPrime(n)\n\t\tif not isMillerRabinPassed(prime_candidate):",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\t\t#n",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\t\t#n = 1024\n\t\tglobal prime_candidate\n\t\tprime_candidate = getLowLevelPrime(n)\n\t\tif not isMillerRabinPassed(prime_candidate):\n\t\t\tcontinue\n\t\telse:\n\t\t\treturn prime_candidate",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "\t\tprime_candidate",
+        "kind": 5,
+        "importPath": "rabin1",
+        "description": "rabin1",
+        "peekOfCode": "\t\tprime_candidate = getLowLevelPrime(n)\n\t\tif not isMillerRabinPassed(prime_candidate):\n\t\t\tcontinue\n\t\telse:\n\t\t\treturn prime_candidate",
+        "detail": "rabin1",
+        "documentation": {}
+    },
+    {
+        "label": "Encrypt",
+        "kind": 6,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "class Encrypt:\n    def __init__(self, plaintext = \"\",n=0,e=0.0):\n        self.plaintext = plaintext\n        self.n = n\n        self.e = Decimal(e)\n    def convert_string_to_bin(self, text):\n        binary = ''.join(format(ord(x), 'b') for x in text)\n        print(f\"Plaintext: {text}\\nBinary: {binary}\")\n        return binary\n    # def convert_binary_to_string(self, binary_string):",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "rec_key",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "rec_key = str(input(\"Enter the recipient's public key, [TWO VALUES SEPERATED BY COMMA (,)] \\n\"))\nn = rec_key.split(\",\")[0]\ne =rec_key.split(\",\")[1]\n# recipient_pub_key = (n,e)\nplaintext = str(input(\"Enter text to encrypt : \\n\"))\nenc = Encrypt(plaintext,n,e)\nmessage_binary = enc.convert_string_to_binary(plaintext)\nmessage_decimal = enc.binaryToDecimal(message_binary)\ncipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "n",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "n = rec_key.split(\",\")[0]\ne =rec_key.split(\",\")[1]\n# recipient_pub_key = (n,e)\nplaintext = str(input(\"Enter text to encrypt : \\n\"))\nenc = Encrypt(plaintext,n,e)\nmessage_binary = enc.convert_string_to_binary(plaintext)\nmessage_decimal = enc.binaryToDecimal(message_binary)\ncipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)\nenc.cipher_to_hex(cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "plaintext",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "plaintext = str(input(\"Enter text to encrypt : \\n\"))\nenc = Encrypt(plaintext,n,e)\nmessage_binary = enc.convert_string_to_binary(plaintext)\nmessage_decimal = enc.binaryToDecimal(message_binary)\ncipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)\nenc.cipher_to_hex(cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "enc",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "enc = Encrypt(plaintext,n,e)\nmessage_binary = enc.convert_string_to_binary(plaintext)\nmessage_decimal = enc.binaryToDecimal(message_binary)\ncipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)\nenc.cipher_to_hex(cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "message_binary",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "message_binary = enc.convert_string_to_binary(plaintext)\nmessage_decimal = enc.binaryToDecimal(message_binary)\ncipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)\nenc.cipher_to_hex(cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "message_decimal",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "message_decimal = enc.binaryToDecimal(message_binary)\ncipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)\nenc.cipher_to_hex(cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "cipher_text",
+        "kind": 5,
+        "importPath": "rsaamanienc",
+        "description": "rsaamanienc",
+        "peekOfCode": "cipher_text = enc.calculate_cipher_text(message_decimal)\nprint(\"CIPHER TEXT :\" ,cipher_text)\nenc.cipher_to_hex(cipher_text)",
+        "detail": "rsaamanienc",
+        "documentation": {}
+    },
+    {
+        "label": "RSA",
+        "kind": 6,
+        "importPath": "rsaamanikeygen",
+        "description": "rsaamanikeygen",
+        "peekOfCode": "class RSA:\n    def __init__(self, numberOfBits):\n        self.numberOfBits = numberOfBits\n        self.calculateN()\n        self.calculateE()\n        self.calculatePrivateKey()\n    def getPrimeNumber(self):\n        prime_number = rabin1.returnPrimeNumber(self.numberOfBits)\n        return prime_number\n    def calculateN(self):",
+        "detail": "rsaamanikeygen",
+        "documentation": {}
+    },
+    {
+        "label": "Keys",
+        "kind": 6,
+        "importPath": "rsaamanilibenc",
+        "description": "rsaamanilibenc",
+        "peekOfCode": "class Keys:\n    def __init__(self,key_size):\n        key_size = int(key_size)\n        self.keyPair = RSA.generate(key_size)\n        self.getPublicKey()\n# print(keyPair)\n    def getPublicKey(self):\n        self.pubKey = self.keyPair.publickey()\n# print(f\"Public key:  (n={hex(pubKey.n)}, e={hex(pubKey.e)})\")\n        # self.getPubPem()",
+        "detail": "rsaamanilibenc",
+        "documentation": {}
+    },
+    {
+        "label": "keyPair",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "keyPair = RSA.generate(1025)\n# print(keyPair)\npubKey = keyPair.publickey()\n# print(f\"Public key:  (n={hex(pubKey.n)}, e={hex(pubKey.e)})\")\npubKeyPEM = pubKey.exportKey()\nprint(pubKeyPEM.decode('ascii'))\nprint(\"\\n\")\nfile = open(\"public.pem\", \"wb\")\nfile.write(pubKeyPEM)\nfile.close",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "pubKey",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "pubKey = keyPair.publickey()\n# print(f\"Public key:  (n={hex(pubKey.n)}, e={hex(pubKey.e)})\")\npubKeyPEM = pubKey.exportKey()\nprint(pubKeyPEM.decode('ascii'))\nprint(\"\\n\")\nfile = open(\"public.pem\", \"wb\")\nfile.write(pubKeyPEM)\nfile.close\n# print(f\"Private key: (n={hex(pubKey.n)}, d={hex(keyPair.d)})\")\nprivKeyPEM = keyPair.exportKey()",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "pubKeyPEM",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "pubKeyPEM = pubKey.exportKey()\nprint(pubKeyPEM.decode('ascii'))\nprint(\"\\n\")\nfile = open(\"public.pem\", \"wb\")\nfile.write(pubKeyPEM)\nfile.close\n# print(f\"Private key: (n={hex(pubKey.n)}, d={hex(keyPair.d)})\")\nprivKeyPEM = keyPair.exportKey()\nprint(privKeyPEM.decode('ascii'))\nprint(\"\\n\")",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "file",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "file = open(\"public.pem\", \"wb\")\nfile.write(pubKeyPEM)\nfile.close\n# print(f\"Private key: (n={hex(pubKey.n)}, d={hex(keyPair.d)})\")\nprivKeyPEM = keyPair.exportKey()\nprint(privKeyPEM.decode('ascii'))\nprint(\"\\n\")\nfile = open(\"private.pem\", \"wb\")\nfile.write(privKeyPEM)\nfile.close()",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "privKeyPEM",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "privKeyPEM = keyPair.exportKey()\nprint(privKeyPEM.decode('ascii'))\nprint(\"\\n\")\nfile = open(\"private.pem\", \"wb\")\nfile.write(privKeyPEM)\nfile.close()\nmessage_plain = bytes(str(input(\"Enter text to encode: \")), \"utf-8\")\nprint(message_plain)\nencryptor = PKCS1_OAEP.new(pubKey)\nmessage_encrypted = encryptor.encrypt(message_plain)",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "file",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "file = open(\"private.pem\", \"wb\")\nfile.write(privKeyPEM)\nfile.close()\nmessage_plain = bytes(str(input(\"Enter text to encode: \")), \"utf-8\")\nprint(message_plain)\nencryptor = PKCS1_OAEP.new(pubKey)\nmessage_encrypted = encryptor.encrypt(message_plain)\nprint(\"Encrypted:\", binascii.hexlify(message_encrypted))\nprint(\"\\n\")\nprint(\"encrypted message: \",message_encrypted)",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "message_plain",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "message_plain = bytes(str(input(\"Enter text to encode: \")), \"utf-8\")\nprint(message_plain)\nencryptor = PKCS1_OAEP.new(pubKey)\nmessage_encrypted = encryptor.encrypt(message_plain)\nprint(\"Encrypted:\", binascii.hexlify(message_encrypted))\nprint(\"\\n\")\nprint(\"encrypted message: \",message_encrypted)\nprivate_key = RSA.import_key(open(\"private.pem\").read())\ndecryptor = PKCS1_OAEP.new(private_key)\nmessage_decrypted = decryptor.decrypt(message_encrypted)",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "encryptor",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "encryptor = PKCS1_OAEP.new(pubKey)\nmessage_encrypted = encryptor.encrypt(message_plain)\nprint(\"Encrypted:\", binascii.hexlify(message_encrypted))\nprint(\"\\n\")\nprint(\"encrypted message: \",message_encrypted)\nprivate_key = RSA.import_key(open(\"private.pem\").read())\ndecryptor = PKCS1_OAEP.new(private_key)\nmessage_decrypted = decryptor.decrypt(message_encrypted)\nmessage_decrypted = message_decrypted.decode(\"utf-8\")\nprint(\"Decrypted:\", message_decrypted)",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "message_encrypted",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "message_encrypted = encryptor.encrypt(message_plain)\nprint(\"Encrypted:\", binascii.hexlify(message_encrypted))\nprint(\"\\n\")\nprint(\"encrypted message: \",message_encrypted)\nprivate_key = RSA.import_key(open(\"private.pem\").read())\ndecryptor = PKCS1_OAEP.new(private_key)\nmessage_decrypted = decryptor.decrypt(message_encrypted)\nmessage_decrypted = message_decrypted.decode(\"utf-8\")\nprint(\"Decrypted:\", message_decrypted)\n# print(\"\\n\")",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "private_key",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "private_key = RSA.import_key(open(\"private.pem\").read())\ndecryptor = PKCS1_OAEP.new(private_key)\nmessage_decrypted = decryptor.decrypt(message_encrypted)\nmessage_decrypted = message_decrypted.decode(\"utf-8\")\nprint(\"Decrypted:\", message_decrypted)\n# print(\"\\n\")",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "decryptor",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "decryptor = PKCS1_OAEP.new(private_key)\nmessage_decrypted = decryptor.decrypt(message_encrypted)\nmessage_decrypted = message_decrypted.decode(\"utf-8\")\nprint(\"Decrypted:\", message_decrypted)\n# print(\"\\n\")",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "message_decrypted",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "message_decrypted = decryptor.decrypt(message_encrypted)\nmessage_decrypted = message_decrypted.decode(\"utf-8\")\nprint(\"Decrypted:\", message_decrypted)\n# print(\"\\n\")",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "message_decrypted",
+        "kind": 5,
+        "importPath": "rsaamanilibencorig",
+        "description": "rsaamanilibencorig",
+        "peekOfCode": "message_decrypted = message_decrypted.decode(\"utf-8\")\nprint(\"Decrypted:\", message_decrypted)\n# print(\"\\n\")",
+        "detail": "rsaamanilibencorig",
+        "documentation": {}
+    },
+    {
+        "label": "index",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def index():\n    if request.method=='GET':\n        return render_template('index.html')\n@app.route('/generate/key',methods=['GET','POST'])\ndef gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        if not keysize.isnumeric():\n            keysize = int(keysize)\n            flash(\"keysize must be a numeric number\")",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "gen_keys",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        if not keysize.isnumeric():\n            keysize = int(keysize)\n            flash(\"keysize must be a numeric number\")\n            return redirect(url_for('index'))\n        else:\n            #generate keys\n            keys = Keys(keysize)",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "download_keys",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def download_keys():\n    public_pem_path = 'public.pem'\n    private_pem_path = 'private,.pem'\n    return render_template('download.html',public_pem_path=public_pem_path,private_pem_path=private_pem_path)\n@app.route('/return-file/private')\ndef return_private_file():\n\ttry:\n\t\treturn send_file('private.pem')\n\texcept Exception as e:\n\t\treturn str(e)",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "return_private_file",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def return_private_file():\n\ttry:\n\t\treturn send_file('private.pem')\n\texcept Exception as e:\n\t\treturn str(e)\n@app.route('/return-file/public')\ndef return_public_file():\n\ttry:\n\t\treturn send_file('public.pem')\n\texcept Exception as e:",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "return_public_file",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def return_public_file():\n\ttry:\n\t\treturn send_file('public.pem')\n\texcept Exception as e:\n\t\treturn str(e)\n@app.route('/encrypt/text',methods=['GET','POST'])\ndef encrypt_text():\n    if request.method == 'GET':\n        return render_template('encrypttext.html')\n@app.route('/decrypt/text',methods=['GET','POST'])",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "encrypt_text",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def encrypt_text():\n    if request.method == 'GET':\n        return render_template('encrypttext.html')\n@app.route('/decrypt/text',methods=['GET','POST'])\ndef decrypt_text():\n    if request.method == 'GET':\n        return render_template('decrypttext.html')\n@app.route('/enc', methods = ['GET', 'POST'])\ndef upload_file():\n   if request.method == 'POST':",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "decrypt_text",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def decrypt_text():\n    if request.method == 'GET':\n        return render_template('decrypttext.html')\n@app.route('/enc', methods = ['GET', 'POST'])\ndef upload_file():\n   if request.method == 'POST':\n        enc = Keys(1024)\n        file = request.files['public']\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(filename+\".pem\"))",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "upload_file",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def upload_file():\n   if request.method == 'POST':\n        enc = Keys(1024)\n        file = request.files['public']\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(filename+\".pem\"))\n        plaintext = bytes(request.form.get('plaintext'),\"utf-8\")\n        print(plaintext)\n        #encrypt text\n        ciphertext = enc.encryptText(plaintext)",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "upload_file_dec",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def upload_file_dec():\n   if request.method == 'POST':\n        dec = Keys(1024)\n        file = request.files['private']\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(filename+\".pem\"))\n        ciphertext = request.form.get('ciphertext')\n        ciphertext = binascii.unhexlify(ciphertext)\n        print(ciphertext)\n        #encrypt text",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "enc_file",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def enc_file():\n    if request.method == 'POST':\n        enc = Keys(1024)\n        key = request.files['public']\n        file = request.files['file']\n        keyname = secure_filename(key.filename)\n        filename = secure_filename(file.filename)\n        key.save(os.path.join(keyname+\".pem\"))\n        file.save(os.path.join(filename))\n        file = open(filename,\"rb\")",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "dec_file",
+        "kind": 2,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "def dec_file():\n    if request.method == 'POST':\n        dec = Keys(1024)\n        key = request.files['private']\n        file = request.files['file']\n        keyname = secure_filename(key.filename)\n        filename = secure_filename(file.filename)\n        key.save(os.path.join(keyname+\".pem\"))\n        file.save(os.path.join(filename))\n        file = open(filename,\"r\")",
+        "detail": "rsagui",
+        "documentation": {}
+    },
+    {
+        "label": "app",
+        "kind": 5,
+        "importPath": "rsagui",
+        "description": "rsagui",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/',methods=['GET'])\ndef index():\n    if request.method=='GET':\n        return render_template('index.html')\n@app.route('/generate/key',methods=['GET','POST'])\ndef gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        if not keysize.isnumeric():",
+        "detail": "rsagui",
+        "documentation": {}
+    }
+]

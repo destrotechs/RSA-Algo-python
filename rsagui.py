@@ -1,3 +1,4 @@
+import binascii
 from flask import Flask,request,url_for,redirect,render_template,flash,send_file
 from rsaamanilibenc import Keys
 from werkzeug.utils import secure_filename
@@ -21,6 +22,7 @@ def gen_keys():
         else:
             #generate keys
             keys = Keys(keysize)
+            keys.genKey()
             keys.getPubPem()
 
             #get the generated files
@@ -80,12 +82,63 @@ def upload_file_dec():
         file.save(os.path.join(filename+".pem"))
         ciphertext = request.form.get('ciphertext')
         
+        ciphertext = binascii.unhexlify(ciphertext)
+        
+        print(ciphertext)
+        
+        
         #encrypt text
         
         plaintext = dec.decryptCipher(ciphertext)
         return render_template("decryptedtext.html",plaintext=plaintext)
 
-
+@app.route('/encrypt/file',methods=['GET','POST'])
+def enc_file():
+    if request.method == 'POST':
+        enc = Keys(1024)
+        key = request.files['public']
+        file = request.files['file']
+        keyname = secure_filename(key.filename)
+        filename = secure_filename(file.filename)
+        key.save(os.path.join(keyname+".pem"))
+        file.save(os.path.join(filename))
+        
+        file = open(filename,"rb")
+        file_content = bytes(file.read(),"utf-8")
+        ciphertext = enc.encryptText(file_content)
+        
+        encrypted_file = open(filename+".enc","w")
+        encrypted_file.write(ciphertext)
+        encrypted_file.close()
+        print("File Content : ",file_content)
+        return redirect(url_for('enc_file'))
+    else:
+        return render_template("encryptfiles.html")
+@app.route('/decrypt/file',methods=['GET','POST'])
+def dec_file():
+    if request.method == 'POST':
+        dec = Keys(1024)
+        key = request.files['private']
+        file = request.files['file']
+        keyname = secure_filename(key.filename)
+        filename = secure_filename(file.filename)
+        key.save(os.path.join(keyname+".pem"))
+        file.save(os.path.join(filename))
+        
+        file = open(filename,"r")
+        file_content = file.read()
+        file_content = binascii.unhexlify(file_content)
+        plaintext = dec.decryptCipher(file_content)
+        
+        
+        filename = filename.replace(".enc","")
+        decrypted_file = open(filename,"w")
+        decrypted_file.write(plaintext)
+        decrypted_file.close()
+        print("File Content : ",file_content)
+        return redirect(url_for('dec_file'))
+    else:
+        return render_template("decryptfiles.html")
 if __name__=="__main__":
     pass
 app.run(debug=True)
