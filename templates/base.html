@@ -29,14 +29,24 @@
                         <a href="/" class="nav-link">Generate Keys</a>
                         <a href="{{url_for('encrypt_text')}}" class="nav-link">Encrypt Text</a>
                         <a href="{{url_for('decrypt_text')}}" class="nav-link">Decrypt Text</a>
-                        <a href="{{url_for('enc_file')}}" class="nav-link">Encrypt File</a>
-                        <a href="{{url_for('dec_file')}}" class="nav-link">Decrypt File</a>
+                        <!-- <a href="{{url_for('enc_file')}}" class="nav-link">Encrypt File</a>
+                        <a href="{{url_for('dec_file')}}" class="nav-link">Decrypt File</a> -->
                       
                       </nav>
                     
                   </div>
             </div>
             <div class="col-md-9">
+              {% with messages = get_flashed_messages() %}
+              {% if messages %}
+                <div class="alert alert-success">
+                {% for message in messages %}
+                  <p>{{ message }}</p>
+                {% endfor %}
+                </div>
+              {% endif %}
+            {% endwith %}
+            <br>
                 {%block content%}
 
                 {%endblock content%}

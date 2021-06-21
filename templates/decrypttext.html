@@ -5,11 +5,11 @@
     <div class="card-body">
         <form method="post" action="{{url_for('upload_file_dec')}}" enctype="multipart/form-data">
             <label>Password</label>
-            <input type="password" name="password" class="form-control" placeholder="password"><br>
+            <input required type="password" name="password" class="form-control" placeholder="password"><br>
             <label>Upload Your Private Key</label>
-            <input type="file" name="private" class="form-control">
+            <input required type="file" name="private" class="form-control">
             <label>Text To Decrypt</label>
-            <textarea class="form-control" rows="5" name="ciphertext"></textarea>
+            <textarea required class="form-control" rows="5" name="ciphertext"></textarea>
             <br>
             <button type="submit" class="btn btn-success">Submit</button>
         </form>
