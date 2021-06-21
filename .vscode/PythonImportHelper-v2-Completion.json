@@ -391,7 +391,7 @@
         "kind": 6,
         "importPath": "rsaamanilibenc",
         "description": "rsaamanilibenc",
-        "peekOfCode": "class Keys:\n    def __init__(self,key_size):\n        key_size = int(key_size)\n        self.keyPair = RSA.generate(key_size)\n        self.getPublicKey()\n# print(keyPair)\n    def getPublicKey(self):\n        self.pubKey = self.keyPair.publickey()\n# print(f\"Public key:  (n={hex(pubKey.n)}, e={hex(pubKey.e)})\")\n        # self.getPubPem()",
+        "peekOfCode": "class Keys:\n    def __init__(self,password):\n        key_size = int(1024)\n        self.password = password\n        self.keyPair = RSA.generate(key_size)\n        self.getPublicKey()\n# print(keyPair)\n    def getPublicKey(self):\n        self.pubKey = self.keyPair.publickey()\n# print(f\"Public key:  (n={hex(pubKey.n)}, e={hex(pubKey.e)})\")",
         "detail": "rsaamanilibenc",
         "documentation": {}
     },
@@ -517,7 +517,7 @@
         "kind": 2,
         "importPath": "rsagui",
         "description": "rsagui",
-        "peekOfCode": "def index():\n    if request.method=='GET':\n        return render_template('index.html')\n@app.route('/generate/key',methods=['GET','POST'])\ndef gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        if not keysize.isnumeric():\n            keysize = int(keysize)\n            flash(\"keysize must be a numeric number\")",
+        "peekOfCode": "def index():\n    if request.method=='GET':\n        return render_template('index.html')\n@app.route('/generate/key',methods=['GET','POST'])\ndef gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        password = request.form.get('password')\n        if len(password)<10:\n            flash(\"pass phrase must be ten characters and above\")",
         "detail": "rsagui",
         "documentation": {}
     },
@@ -526,7 +526,7 @@
         "kind": 2,
         "importPath": "rsagui",
         "description": "rsagui",
-        "peekOfCode": "def gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        if not keysize.isnumeric():\n            keysize = int(keysize)\n            flash(\"keysize must be a numeric number\")\n            return redirect(url_for('index'))\n        else:\n            #generate keys\n            keys = Keys(keysize)",
+        "peekOfCode": "def gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        password = request.form.get('password')\n        if len(password)<10:\n            flash(\"pass phrase must be ten characters and above\")\n            return redirect(url_for('index'))\n        else:\n            #generate keys\n            keys = Keys(password)",
         "detail": "rsagui",
         "documentation": {}
     },
@@ -589,7 +589,7 @@
         "kind": 2,
         "importPath": "rsagui",
         "description": "rsagui",
-        "peekOfCode": "def upload_file_dec():\n   if request.method == 'POST':\n        dec = Keys(1024)\n        file = request.files['private']\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(filename+\".pem\"))\n        ciphertext = request.form.get('ciphertext')\n        ciphertext = binascii.unhexlify(ciphertext)\n        print(ciphertext)\n        #encrypt text",
+        "peekOfCode": "def upload_file_dec():\n   if request.method == 'POST':\n        dec = Keys(1024)\n        file = request.files['private']\n        password = request.form.get('password')\n        filename = secure_filename(file.filename)\n        file.save(os.path.join(filename+\".pem\"))\n        ciphertext = request.form.get('ciphertext')\n        ciphertext = binascii.unhexlify(ciphertext)\n        print(ciphertext)",
         "detail": "rsagui",
         "documentation": {}
     },
@@ -616,7 +616,7 @@
         "kind": 5,
         "importPath": "rsagui",
         "description": "rsagui",
-        "peekOfCode": "app = Flask(__name__)\n@app.route('/',methods=['GET'])\ndef index():\n    if request.method=='GET':\n        return render_template('index.html')\n@app.route('/generate/key',methods=['GET','POST'])\ndef gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        if not keysize.isnumeric():",
+        "peekOfCode": "app = Flask(__name__)\n@app.route('/',methods=['GET'])\ndef index():\n    if request.method=='GET':\n        return render_template('index.html')\n@app.route('/generate/key',methods=['GET','POST'])\ndef gen_keys():\n    if request.method=='POST':\n        keysize = request.form.get('keysize')\n        password = request.form.get('password')",
         "detail": "rsagui",
         "documentation": {}
     }

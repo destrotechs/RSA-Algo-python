@@ -4,8 +4,9 @@ import binascii
 import os
 
 class Keys:
-    def __init__(self,key_size):
-        key_size = int(key_size)
+    def __init__(self,password):
+        key_size = int(1024)
+        self.password = password
         self.keyPair = RSA.generate(key_size)
         self.getPublicKey()
 # print(keyPair)
@@ -22,7 +23,7 @@ class Keys:
         file.close
 
         # print(f"Private key: (n={hex(pubKey.n)}, d={hex(keyPair.d)})")
-        self.privKeyPEM = self.keyPair.exportKey()
+        self.privKeyPEM = self.keyPair.exportKey(passphrase=self.password,pkcs=8,protection="scryptAndAES128-CBC")
         print(self.privKeyPEM.decode('ascii'))
         print("\n")
         file = open("private.pem", "wb")
@@ -42,7 +43,7 @@ class Keys:
         ciphertext =binascii.hexlify(enc_mes)
         ciphertext = ciphertext.decode("utf-8")
         return ciphertext
-    def decryptCipher(self,cipher):
+    def decryptCipher(self,cipher,password):
         # print(cipher)
         # private_key = RSA.import_key(open("private.pem").read())
         # decryptor = PKCS1_OAEP.new(private_key)
@@ -50,8 +51,11 @@ class Keys:
         # message_decrypted = message_decrypted.decode("utf-8")
         # print("Decrypted:", message_decrypted)
         # return message_decrypted
-        private_key = RSA.import_key(open("private.pem").read())
-        cipher_rsa = PKCS1_OAEP.new(private_key)
-        plaintext = cipher_rsa.decrypt(cipher)
-        plaintext = plaintext.decode("utf-8")
-        return plaintext
+        try:
+            private_key = RSA.import_key(open("private.pem").read(),passphrase=password)
+            cipher_rsa = PKCS1_OAEP.new(private_key)
+            plaintext = cipher_rsa.decrypt(cipher)
+            plaintext = plaintext.decode("utf-8")
+            return plaintext
+        except:
+            return "error"

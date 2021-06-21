@@ -5,10 +5,11 @@
     <div class="card-body d-flex justify-content-center">
         <form method="POST" action="{{url_for('gen_keys')}}">
             <label>
-                Key Size
+                Key Protection Password
             </label>
-            <input type="digit" name="keysize" class="form-control" placeholder="e.g 1024"><br>
-            <small>The larger the key size, the stronger the keys generated</small><br>
+            <input type="hidden" name="keysize" class="form-control" placeholder="e.g 1024"><br>
+            <input type="password" name="password" class="form-control" placeholder="password"><br>
+            <small>Use a passphrase to protect your private key</small><br>
             <button class="btn btn-success" type="submit">Generate Keys</button>
         </form>
        

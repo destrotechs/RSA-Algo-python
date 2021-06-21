@@ -15,14 +15,15 @@ def index():
 def gen_keys():
     if request.method=='POST':
         keysize = request.form.get('keysize')
-        if not keysize.isnumeric():
-            keysize = int(keysize)
-            flash("keysize must be a numeric number")
+        password = request.form.get('password')
+        if len(password)<10:
+            
+            flash("pass phrase must be ten characters and above")
             return redirect(url_for('index'))
         else:
             #generate keys
-            keys = Keys(keysize)
-            keys.genKey()
+            keys = Keys(password)
+            
             keys.getPubPem()
 
             #get the generated files
@@ -77,6 +78,7 @@ def upload_file_dec():
    if request.method == 'POST':
         dec = Keys(1024)
         file = request.files['private']
+        password = request.form.get('password')
         filename = secure_filename(file.filename)
 
         file.save(os.path.join(filename+".pem"))
@@ -87,10 +89,13 @@ def upload_file_dec():
         print(ciphertext)
         
         
-        #encrypt text
+        #decrypt text
         
-        plaintext = dec.decryptCipher(ciphertext)
-        return render_template("decryptedtext.html",plaintext=plaintext)
+        plaintext = dec.decryptCipher(ciphertext,password)
+        if plaintext == 'error':
+            return "Error: Wrong password"
+        else:
+            return render_template("decryptedtext.html",plaintext=plaintext)
 
 @app.route('/encrypt/file',methods=['GET','POST'])
 def enc_file():
@@ -141,5 +146,5 @@ def dec_file():
         return render_template("decryptfiles.html")
 if __name__=="__main__":
     pass
-app.run(debug=True)
+app.run(debug=False)
 
